@@ -1,4 +1,4 @@
-import { HeaderWrapper, Container, Navbar, LeftContent, Logo, SearchForm, SearchInput } from '../components';
+import { HeaderWrapper, Container, Navbar, LeftContent, Logo, SearchForm, SearchInput, SearchButton } from '../components';
 
 function Header() {
   return (
@@ -9,6 +9,7 @@ function Header() {
             <Logo>ProShop</Logo>
             <SearchForm>
               <SearchInput id='search' name='search' placeholder='Search item...' />
+              <SearchButton type='submit'>submit</SearchButton>
             </SearchForm>
           </LeftContent>
         </Navbar>

@@ -11,4 +11,5 @@ export const theme = {
   fonts: {
     primary: '"Nunito Sans", sans-serif',
   },
+  transition: 'all 0.2s ease-in-out',
 }
