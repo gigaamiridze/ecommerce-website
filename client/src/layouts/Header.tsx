@@ -1,4 +1,9 @@
-import { HeaderWrapper, Container, Navbar, LeftContent, Logo, SearchForm, SearchInput, SearchButton } from '../components';
+import { FaShoppingCart, FaUser } from 'react-icons/fa';
+import {
+  HeaderWrapper, Container, Navbar, LeftContent,
+  RightContent, Logo, SearchForm, SearchInput,
+  SearchButton
+} from '../components';
 
 function Header() {
   return (
@@ -12,6 +17,16 @@ function Header() {
               <SearchButton type='submit'>submit</SearchButton>
             </SearchForm>
           </LeftContent>
+          <RightContent>
+            <a href="#">
+              <FaShoppingCart />
+              <span>cart</span>
+            </a>
+            <a href="#">
+              <FaUser />
+              <span>login</span>
+            </a>
+          </RightContent>
         </Navbar>
       </Container>
     </HeaderWrapper>
