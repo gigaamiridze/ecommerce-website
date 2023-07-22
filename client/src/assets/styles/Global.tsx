@@ -44,6 +44,12 @@ const GlobalStyles = createGlobalStyle`
   a {
     display: inline-block;
     text-decoration: none;
+    color: inherit;
+  }
+  
+  // Element styles
+  body {
+    font-family: ${({ theme }) => theme.fonts.primary};
   }
 `;
 

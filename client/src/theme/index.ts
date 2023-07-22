@@ -7,4 +7,7 @@ export const theme = {
     lightGreen: '#4bbf73',
     darkGreen: 'rgba(75, 191, 115, .5)',
   },
+  fonts: {
+    primary: '"Nunito Sans", sans-serif',
+  },
 }
