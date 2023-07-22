@@ -6,7 +6,6 @@ const Logo = styled.h1`
   font-weight: 600;
   letter-spacing: 1px;
   text-transform: uppercase;
-  margin-right: 32px;
 `;
 
 export default Logo;

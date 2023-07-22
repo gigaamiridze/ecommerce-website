@@ -1,11 +1,16 @@
-import { HeaderWrapper, Container, Navbar, Logo } from '../components';
+import { HeaderWrapper, Container, Navbar, LeftContent, Logo, SearchForm, SearchInput } from '../components';
 
 function Header() {
   return (
     <HeaderWrapper>
       <Container>
         <Navbar>
-          <Logo>ProShop</Logo>
+          <LeftContent>
+            <Logo>ProShop</Logo>
+            <SearchForm>
+              <SearchInput id='search' name='search' placeholder='Search item...' />
+            </SearchForm>
+          </LeftContent>
         </Navbar>
       </Container>
     </HeaderWrapper>
