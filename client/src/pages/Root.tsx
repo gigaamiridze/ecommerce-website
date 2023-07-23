@@ -1,11 +1,12 @@
 import { Outlet } from 'react-router-dom';
-import { Header } from '../layouts';
+import { Header, Footer } from '../layouts';
 
 function Root() {
   return (
     <>
       <Header />
       <Outlet />
+      <Footer />
     </>
   )
 }
