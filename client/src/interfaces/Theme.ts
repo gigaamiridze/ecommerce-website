@@ -7,6 +7,7 @@ export interface ITheme {
 interface IColors {
   white: string;
   black: string;
+  primary: string;
   gray: string;
   davyGray: string;
   darkGray: string;

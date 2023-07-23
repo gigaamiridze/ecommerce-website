@@ -1,6 +1,10 @@
+import { HomeTitle } from '../components';
+
 function Home() {
   return (
-    <div>Home</div>
+    <>
+      <HomeTitle>latest products</HomeTitle>
+    </>
   )
 }
 
