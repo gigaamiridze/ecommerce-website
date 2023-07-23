@@ -10,6 +10,7 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     border: 0;
+    display: block;
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
