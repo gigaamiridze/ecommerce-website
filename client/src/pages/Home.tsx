@@ -1,4 +1,6 @@
+import { products } from '../data';
 import { Product } from '../layouts';
+import { IProduct } from '../interfaces';
 import { HomeTitle, ProductsList } from '../components';
 
 function Home() {
@@ -6,7 +8,12 @@ function Home() {
     <>
       <HomeTitle>latest products</HomeTitle>
       <ProductsList>
-        <Product />
+        {products.slice(0, 4).map((product: IProduct) => (
+            <Product
+              key={product.id}
+              product={product}
+            />
+        ))}
       </ProductsList>
     </>
   )
