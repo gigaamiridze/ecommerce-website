@@ -14,7 +14,7 @@ export const ProductItem = styled.div`
   border-radius: 3px;
   padding: 16px;
   
-  div {
+  #product-info {
     padding: 20px;
   }
 `;
@@ -36,5 +36,4 @@ export const ProductPrice = styled.span`
   font-size: 24px;
   font-weight: 600;
   letter-spacing: 3px;
-  margin-top: 30px;
 `;
