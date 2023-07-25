@@ -19,11 +19,6 @@ export const ProductItemContent = styled.div`
   }
 `;
 
-export const ProductImage = styled.img`
-  width: 100%;
-  object-fit: cover;
-`;
-
 export const ProductName = styled.p`
   color: ${({ theme }) => theme.colors.primary};
   font-size: 14px;
