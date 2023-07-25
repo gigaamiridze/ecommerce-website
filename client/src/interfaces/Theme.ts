@@ -10,6 +10,7 @@ interface IColors {
   primary: string;
   yellow: string;
   gray: string;
+  brightGray: string;
   davyGray: string;
   darkGray: string;
   lightGreen: string;

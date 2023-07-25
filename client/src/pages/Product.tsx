@@ -1,10 +1,17 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
+import { PageRoutes } from '../constants';
+import { BackButton } from '../components';
+
 
 function Product() {
   const { productId } = useParams();
 
   return (
-    <div>Product ID: {productId}</div>
+    <>
+      <Link to={PageRoutes.ROOT}>
+        <BackButton>Go Back</BackButton>
+      </Link>
+    </>
   )
 }
 

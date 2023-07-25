@@ -5,6 +5,7 @@ export const theme = {
     primary: '#1a1a1a',
     yellow: '#f8e825',
     gray: 'hsla(0, 0%, 100%, .5)',
+    brightGray: '#ececec',
     davyGray: '#55595c',
     darkGray: '#343a40',
     lightGreen: '#4bbf73',
