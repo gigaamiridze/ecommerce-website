@@ -1,4 +1,6 @@
 import { FaShoppingCart, FaUser } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { PageRoutes } from '../constants';
 import {
   HeaderWrapper, Container, Navbar, LeftContent,
   RightContent, Logo, SearchForm, SearchInput,
@@ -11,21 +13,23 @@ function Header() {
       <Container>
         <Navbar>
           <LeftContent>
-            <Logo>ProShop</Logo>
+            <Link to={PageRoutes.ROOT}>
+              <Logo>ProShop</Logo>
+            </Link>
             <SearchForm>
               <SearchInput id='search' name='search' placeholder='Search item...' />
               <SearchButton type='submit'>submit</SearchButton>
             </SearchForm>
           </LeftContent>
           <RightContent>
-            <a href="#">
+            <Link to={PageRoutes.CART}>
               <FaShoppingCart />
               <span>cart</span>
-            </a>
-            <a href="#">
+            </Link>
+            <Link to={PageRoutes.LOGIN}>
               <FaUser />
               <span>login</span>
-            </a>
+            </Link>
           </RightContent>
         </Navbar>
       </Container>

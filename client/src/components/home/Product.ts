@@ -8,7 +8,7 @@ export const ProductsList = styled.div`
   margin-top: 40px;
 `;
 
-export const ProductItem = styled.div`
+export const ProductItemContent = styled.div`
   width: 255px;
   border: 1px solid rgba(0, 0, 0, .125);
   border-radius: 3px;

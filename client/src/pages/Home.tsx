@@ -1,5 +1,5 @@
 import { products } from '../data';
-import { Product } from '../layouts';
+import { ProductItem } from '../layouts';
 import { IProduct } from '../interfaces';
 import { HomeTitle, ProductsList } from '../components';
 
@@ -9,7 +9,7 @@ function Home() {
       <HomeTitle>latest products</HomeTitle>
       <ProductsList>
         {products.slice(0, 4).map((product: IProduct) => (
-            <Product
+            <ProductItem
               key={product.id}
               product={product}
             />

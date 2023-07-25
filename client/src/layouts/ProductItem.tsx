@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 import { PageRoutes } from '../constants';
 import { IProductProps } from '../interfaces';
 import { Rating } from '../layouts';
-import { ProductItem, ProductImage, ProductName, ProductPrice } from '../components';
+import { ProductItemContent, ProductImage, ProductName, ProductPrice } from '../components';
 
-function Product({ product }: IProductProps) {
+function ProductItem({ product }: IProductProps) {
   const { id, name, image, brand, price, rating, numReviews } = product;
 
   return (
-    <ProductItem>
+    <ProductItemContent>
       <Link to={`${PageRoutes.PRODUCT}/${id}`}>
         <ProductImage src={image} alt={`${brand}'s Product`} />
       </Link>
@@ -19,8 +19,8 @@ function Product({ product }: IProductProps) {
         <Rating rating={rating} numReviews={numReviews} />
         <ProductPrice>${price}</ProductPrice>
       </div>
-    </ProductItem>
+    </ProductItemContent>
   )
 }
 
-export default Product;
+export default ProductItem;
