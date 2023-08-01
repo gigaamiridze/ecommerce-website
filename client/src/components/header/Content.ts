@@ -1,30 +1,28 @@
 import styled, { css } from 'styled-components';
+import { mixins } from '../../assets';
 
 export const LeftContent = styled.div`
-  display: flex;
-  align-items: center;
+  ${mixins.flexBetween};
   column-gap: 80px;
 `;
 
 export const RightContent = styled.div`
-  display: flex;
-  align-items: flex-end;
+  ${mixins.flexBetween};
   column-gap: 10px;
-  
+
   a {
     ${({ theme }) => css`
       color: ${theme.colors.gray};
       transition: ${theme.transition};
     `}
-    display: flex;
-    align-items: center;
+    ${mixins.flexBetween};
     column-gap: 8px;
     padding: 8px;
-    
+
     &:hover {
       color: ${({ theme }) => theme.colors.white};
     }
-    
+
     span {
       font-size: 14px;
       font-weight: 600;

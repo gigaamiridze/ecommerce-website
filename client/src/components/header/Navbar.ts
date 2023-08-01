@@ -1,9 +1,8 @@
 import styled from 'styled-components';
+import { mixins } from '../../assets';
 
 const Navbar = styled.nav`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${mixins.flexBetween};
 `;
 
 export default Navbar;

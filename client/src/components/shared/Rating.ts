@@ -1,15 +1,13 @@
 import styled from 'styled-components';
+import { mixins } from '../../assets';
 
 export const RatingContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  ${mixins.flexBetween};
   margin: 15px 0 30px;
 `;
 
 export const StarsWrapper = styled.div`
-  display: flex;
-  align-items: center;
+  ${mixins.flexBetween};
   
   svg {
     color: ${({ theme }) => theme.colors.yellow};

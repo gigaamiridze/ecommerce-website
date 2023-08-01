@@ -5,4 +5,22 @@ export const mixins = {
     width: 100%;
     border-bottom: 1px solid ${({ theme }) => theme.colors.brightGray};    
   `,
+
+  flexCenter: css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `,
+
+  flexBetween: css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  `,
+
+  overflowEllipsis: css`
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  `,
 }
