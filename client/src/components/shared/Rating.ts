@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import { mixins } from '../../assets';
 
 export const RatingContainer = styled.div`
-  ${mixins.flexBetween};
-  margin: 15px 0 30px;
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
 `;
 
 export const StarsWrapper = styled.div`

@@ -13,13 +13,9 @@ export const ProductItemContent = styled.div`
   padding: 16px;
   
   #product-info {
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    padding: 20px 0;
   }
-`;
-
-export const ProductPrice = styled.span`
-  color: ${({ theme }) => theme.colors.primary};
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: 3px;
 `;

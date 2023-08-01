@@ -17,7 +17,7 @@ function ProductItem({ product }: IProductProps) {
           <ProductName isProductContent={false}>{name}</ProductName>
         </Link>
         <Rating rating={rating} numReviews={numReviews} />
-        <ProductPrice>${price}</ProductPrice>
+        <ProductPrice isProductContent={false}>${price}</ProductPrice>
       </div>
     </ProductItemContent>
   )

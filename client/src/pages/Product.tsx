@@ -1,7 +1,16 @@
 import { useParams, Link } from 'react-router-dom';
 import { products } from '../data';
+import { Rating } from '../layouts';
 import { PageRoutes } from '../constants';
-import { BackButton, ProductDetails, ProductImage, ProductName } from '../components';
+import {
+  BackButton,
+  ProductDetails,
+  ProductImage,
+  ProductInfoWrapper,
+  ProductName,
+  ProductPrice,
+  ProjectDescription
+} from '../components';
 
 function Product() {
   const { productId } = useParams();
@@ -18,9 +27,12 @@ function Product() {
             src={product.image}
             alt={`${product.brand}'s Product`}
           />
-          <div>
+          <ProductInfoWrapper>
             <ProductName isProductContent={true}>{product.name}</ProductName>
-          </div>
+            <Rating rating={product.rating} numReviews={product.numReviews} />
+            <ProductPrice isProductContent={true}>Price: ${product.price}</ProductPrice>
+            <ProjectDescription>{product.description}</ProjectDescription>
+          </ProductInfoWrapper>
         </ProductDetails>
       )}
     </>
