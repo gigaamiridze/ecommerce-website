@@ -14,7 +14,7 @@ function ProductItem({ product }: IProductProps) {
       </Link>
       <div id='product-info'>
         <Link to={`${PageRoutes.PRODUCT}/${id}`}>
-          <ProductName>{name}</ProductName>
+          <ProductName isProductContent={false}>{name}</ProductName>
         </Link>
         <Rating rating={rating} numReviews={numReviews} />
         <ProductPrice>${price}</ProductPrice>

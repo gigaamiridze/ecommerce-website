@@ -14,3 +14,8 @@ export interface IProduct {
 export interface IProductProps {
   product: IProduct;
 }
+
+export interface IProductLayout {
+  // If a component is product page content 'isProductContent' is set to true
+  isProductContent: boolean;
+}
