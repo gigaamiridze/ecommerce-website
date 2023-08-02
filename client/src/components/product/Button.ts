@@ -35,4 +35,9 @@ export const AddButton = styled(Button)`
   `}
   width: 100%;
   white-space: nowrap;
+  
+  &:disabled {
+    background-color: ${({ theme }) => theme.colors.line};
+    cursor: not-allowed;
+  }
 `;

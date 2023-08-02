@@ -11,6 +11,10 @@ const CartGroup = styled.div`
     ${mixins.horizontalGrayLine};
     padding: 12px 20px;
 
+    &:last-child {
+      border-bottom: none;
+    }
+
     span {
       color: ${({ theme }) => theme.colors.davyGray};
       font-size: 14px;

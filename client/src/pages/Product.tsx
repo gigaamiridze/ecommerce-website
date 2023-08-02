@@ -17,6 +17,7 @@ import {
 function Product() {
   const { productId } = useParams();
   const product = products.find(product => product.id === productId);
+  const isInStock = (product?.countInStock ?? 0) > 0;
 
   return (
     <>
@@ -42,10 +43,10 @@ function Product() {
             </div>
             <div>
               <span>Status:</span>
-              <span>{product.countInStock > 0 ? 'In Stock' : 'Out of Stock'}</span>
+              <span>{isInStock ? 'In Stock' : 'Out of Stock'}</span>
             </div>
             <div>
-              <AddButton>Add to Cart</AddButton>
+              <AddButton disabled={!isInStock}>Add to Cart</AddButton>
             </div>
           </CartGroup>
         </ProductDetails>
