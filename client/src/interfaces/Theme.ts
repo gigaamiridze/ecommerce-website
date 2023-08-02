@@ -8,6 +8,7 @@ interface IColors {
   white: string;
   black: string;
   primary: string;
+  line: string;
   yellow: string;
   gray: string;
   brightGray: string;

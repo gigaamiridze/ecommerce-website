@@ -9,7 +9,8 @@ import {
   ProductInfoWrapper,
   ProductName,
   ProductPrice,
-  ProjectDescription
+  ProjectDescription,
+  CartGroup
 } from '../components';
 
 function Product() {
@@ -33,6 +34,16 @@ function Product() {
             <ProductPrice isProductContent={true}>Price: ${product.price}</ProductPrice>
             <ProjectDescription>{product.description}</ProjectDescription>
           </ProductInfoWrapper>
+          <CartGroup>
+            <div>
+              <span>Price:</span>
+              <ProductPrice isProductContent={true}>${product.price}</ProductPrice>
+            </div>
+            <div>
+              <span>Status:</span>
+              <span>{product.countInStock > 0 ? 'In Stock' : 'Out of Stock'}</span>
+            </div>
+          </CartGroup>
         </ProductDetails>
       )}
     </>

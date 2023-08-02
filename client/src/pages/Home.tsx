@@ -7,7 +7,7 @@ function Home() {
     <>
       <HomeTitle>latest products</HomeTitle>
       <ProductsList>
-        {products.slice(0, 4).map((product) => (
+        {products.map((product) => (
           <ProductItem
             key={product.id}
             product={product}

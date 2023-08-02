@@ -8,7 +8,7 @@ export const ProductsList = styled.div`
 `;
 
 export const ProductItemContent = styled.div`
-  border: 1px solid rgba(0, 0, 0, .125);
+  border: 1px solid ${({ theme }) => theme.colors.line};
   border-radius: 3px;
   padding: 16px;
   
