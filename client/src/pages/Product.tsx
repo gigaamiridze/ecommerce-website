@@ -10,7 +10,8 @@ import {
   ProductName,
   ProductPrice,
   ProjectDescription,
-  CartGroup
+  CartGroup,
+  AddButton
 } from '../components';
 
 function Product() {
@@ -42,6 +43,9 @@ function Product() {
             <div>
               <span>Status:</span>
               <span>{product.countInStock > 0 ? 'In Stock' : 'Out of Stock'}</span>
+            </div>
+            <div>
+              <AddButton>Add to Cart</AddButton>
             </div>
           </CartGroup>
         </ProductDetails>
