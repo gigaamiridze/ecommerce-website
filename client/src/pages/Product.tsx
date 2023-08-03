@@ -1,7 +1,9 @@
+import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { products } from '../data';
+import axios from 'axios';
 import { Rating } from '../layouts';
-import { PageRoutes } from '../constants';
+import { IProduct } from '../interfaces';
+import { PageRoutes, ApiRoutes } from '../constants';
 import {
   BackButton,
   ProductDetails,
@@ -16,8 +18,17 @@ import {
 
 function Product() {
   const { productId } = useParams();
-  const product = products.find(product => product.id === productId);
+  const [product, setProduct] = useState<IProduct | null>(null);
   const isInStock = (product?.countInStock ?? 0) > 0;
+
+  useEffect(() => {
+    getProduct();
+  }, [productId]);
+
+  const getProduct = async () => {
+    const { data } = await axios.get(`${ApiRoutes.PRODUCTS}/${productId}`);
+    setProduct(data);
+  }
 
   return (
     <>
