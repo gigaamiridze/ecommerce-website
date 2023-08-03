@@ -1,7 +1,8 @@
-from django.shortcuts import render
-from django.http import JsonResponse
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 from .products import products
 
+@api_view(['GET'])
 def get_routes(request):
     routes = [
         {
@@ -36,11 +37,13 @@ def get_routes(request):
         },
     ]
 
-    return JsonResponse(routes, safe=False)
+    return Response(routes)
 
+@api_view(['GET'])
 def get_products(request):
-    return JsonResponse(products, safe=False)
+    return Response(products)
 
+@api_view(['GET'])
 def get_product(request, pk):
     product = None
     for item in products:
@@ -48,4 +51,4 @@ def get_product(request, pk):
             product = item
             break
 
-    return JsonResponse(product, safe=False)
+    return Response(product)
