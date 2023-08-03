@@ -40,3 +40,12 @@ def get_routes(request):
 
 def get_products(request):
     return JsonResponse(products, safe=False)
+
+def get_product(request, pk):
+    product = None
+    for item in products:
+        if item['id'] == pk:
+            product = item
+            break
+
+    return JsonResponse(product, safe=False)
