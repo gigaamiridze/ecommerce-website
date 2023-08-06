@@ -23,7 +23,7 @@ function Home() {
       <ProductsList>
         {products.map((product) => (
           <ProductItem
-            key={product.id}
+            key={product._id}
             product={product}
           />
         ))}

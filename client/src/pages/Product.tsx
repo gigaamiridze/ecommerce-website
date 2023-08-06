@@ -19,7 +19,7 @@ import {
 function Product() {
   const { productId } = useParams();
   const [product, setProduct] = useState<IProduct | null>(null);
-  const isInStock = (product?.countInStock ?? 0) > 0;
+  const isInStock = (product?.count_in_stock ?? 0) > 0;
 
   useEffect(() => {
     getProduct();
@@ -43,7 +43,7 @@ function Product() {
           />
           <ProductInfoWrapper>
             <ProductName isProductContent={true}>{product.name}</ProductName>
-            <Rating rating={product.rating} numReviews={product.numReviews} />
+            <Rating rating={product.rating} numReviews={product.num_reviews} />
             <ProductPrice isProductContent={true}>Price: ${product.price}</ProductPrice>
             <ProjectDescription>{product.description}</ProjectDescription>
           </ProductInfoWrapper>
