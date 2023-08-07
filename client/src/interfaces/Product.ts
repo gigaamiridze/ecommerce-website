@@ -19,3 +19,9 @@ export interface IProductLayout {
   // If a component is product page content 'isProductContent' is set to true
   isProductContent: boolean;
 }
+
+// This interface is for initial state of product slice
+export interface IProductState {
+  products: IProduct[];
+  isLoading: boolean;
+}
