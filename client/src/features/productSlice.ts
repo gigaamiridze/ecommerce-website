@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IProductState, IProduct } from '../interfaces';
+import { RootState } from '../store';
 
 const initialState: IProductState = {
   products: [],
@@ -22,6 +23,8 @@ const productSlice = createSlice({
     },
   },
 });
+
+export const selectProductState = (state: RootState) => state.product;
 
 export const {
   getProductsStart,
