@@ -20,9 +20,16 @@ export interface IProductLayout {
   isProductContent: boolean;
 }
 
-// This interface is for initial state of product slice
+// This interface is for initial state of products slice
 export interface IProductsState {
   products: IProduct[];
+  isLoading: boolean;
+  error: string | null;
+}
+
+// This interface is for initial state of product details slice
+export interface IProductDetailsState {
+  products: IProduct | null;
   isLoading: boolean;
   error: string | null;
 }
