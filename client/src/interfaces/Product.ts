@@ -29,7 +29,7 @@ export interface IProductsState {
 
 // This interface is for initial state of product details slice
 export interface IProductDetailsState {
-  products: IProduct | null;
+  product: IProduct | null;
   isLoading: boolean;
   error: string | null;
 }

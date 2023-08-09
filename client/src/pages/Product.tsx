@@ -1,11 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
-import { Rating } from '../layouts';
-import { IProduct } from '../interfaces';
+import { Rating, Loader, Alert } from '../layouts';
 import { PageRoutes, ApiRoutes } from '../constants';
+import { useAppSelector, useAppDispatch } from '../store'
 import {
-  PageContent,
+  selectProductDetailsState,
+  fetchProductRequest,
+  fetchProductSuccess,
+  fetchProductFail
+} from '../features';
+import {
+  ProductContainer,
   BackButton,
   ProductDetails,
   ProductImage,
@@ -14,44 +20,55 @@ import {
   ProductPrice,
   ProjectDescription,
   CartGroup,
-  AddButton
+  AddButton,
 } from '../components';
 
 function Product() {
   const { productId } = useParams();
-  const [product, setProduct] = useState<IProduct | null>(null);
+  const { product, isLoading, error } = useAppSelector(selectProductDetailsState);
+  const dispatch = useAppDispatch();
   const isInStock = (product?.count_in_stock ?? 0) > 0;
 
   useEffect(() => {
-    getProduct();
+    const getProductDetails = async () => {
+      try {
+        dispatch(fetchProductRequest());
+
+        const { data } = await axios.get(`${ApiRoutes.PRODUCTS}/${productId}`);
+        dispatch(fetchProductSuccess(data));
+      } catch (error) {
+        dispatch(fetchProductFail(`${(error as Error).message}: Failed to fetch product details`));
+      }
+    }
+
+    getProductDetails();
   }, [productId]);
 
-  const getProduct = async () => {
-    const { data } = await axios.get(`${ApiRoutes.PRODUCTS}/${productId}`);
-    setProduct(data);
-  }
-
   return (
-    <PageContent>
+    <ProductContainer>
       <Link to={PageRoutes.ROOT}>
         <BackButton>Go Back</BackButton>
       </Link>
-      {product && (
+      {isLoading ? (
+        <Loader />
+      ) : error ? (
+        <Alert variant='danger'>{error}</Alert>
+      ) : (
         <ProductDetails>
           <ProductImage
-            src={product.image}
-            alt={`${product.brand}'s Product`}
+            src={product?.image}
+            alt={`${product?.brand}'s Product`}
           />
           <ProductInfoWrapper>
-            <ProductName isProductContent={true}>{product.name}</ProductName>
-            <Rating rating={product.rating} numReviews={product.num_reviews} />
-            <ProductPrice isProductContent={true}>Price: ${product.price}</ProductPrice>
-            <ProjectDescription>{product.description}</ProjectDescription>
+            <ProductName isProductContent={true}>{product?.name}</ProductName>
+            <Rating rating={product?.rating} numReviews={product?.num_reviews} />
+            <ProductPrice isProductContent={true}>Price: ${product?.price}</ProductPrice>
+            <ProjectDescription>{product?.description}</ProjectDescription>
           </ProductInfoWrapper>
           <CartGroup>
             <div>
               <span>Price:</span>
-              <ProductPrice isProductContent={true}>${product.price}</ProductPrice>
+              <ProductPrice isProductContent={true}>${product?.price}</ProductPrice>
             </div>
             <div>
               <span>Status:</span>
@@ -63,7 +80,7 @@ function Product() {
           </CartGroup>
         </ProductDetails>
       )}
-    </PageContent>
+    </ProductContainer>
   )
 }
 

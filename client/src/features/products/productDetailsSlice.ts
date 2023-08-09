@@ -3,7 +3,7 @@ import { IProductDetailsState, IProduct } from '../../interfaces';
 import { RootState } from '../../store';
 
 const initialState: IProductDetailsState = {
-  products: null,
+  product: null,
   isLoading: false,
   error: null,
 };
@@ -12,28 +12,28 @@ const productDetailsSlice = createSlice({
   name: 'product',
   initialState,
   reducers: {
-    getProductRequest: (state) => {
+    fetchProductRequest: (state) => {
       state.isLoading = true;
       state.error = null;
     },
-    getProductSuccess: (state, action: PayloadAction<IProduct>) => {
-      state.products = action.payload;
+    fetchProductSuccess: (state, action: PayloadAction<IProduct>) => {
+      state.product = action.payload;
       state.isLoading = false;
       state.error = null;
     },
-    getProductFail: (state, action: PayloadAction<string>) => {
+    fetchProductFail: (state, action: PayloadAction<string>) => {
       state.isLoading = false;
       state.error = action.payload;
     },
   },
 });
 
-export const selectProductState = (state: RootState) => state.productDetails;
+export const selectProductDetailsState = (state: RootState) => state.productDetails;
 
 export const {
-  getProductRequest,
-  getProductSuccess,
-  getProductFail
+  fetchProductRequest,
+  fetchProductSuccess,
+  fetchProductFail
 } = productDetailsSlice.actions;
 
 export default productDetailsSlice.reducer;

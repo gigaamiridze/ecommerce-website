@@ -1,4 +1,4 @@
 export interface IRatingProps {
-  rating: number;
-  numReviews: number;
+  rating: number | undefined;
+  numReviews: number | undefined;
 }

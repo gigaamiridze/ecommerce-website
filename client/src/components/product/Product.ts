@@ -1,12 +1,17 @@
 import styled from 'styled-components';
 import { mixins } from '../../assets';
-import { ProductName, ProductPrice, RatingContainer } from '../shared';
+import { PageContent, ProductName, ProductPrice, RatingContainer } from '../shared';
+
+export const ProductContainer = styled(PageContent)`
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+`;
 
 export const ProductDetails = styled.div`
   display: grid;
   grid-template-columns: 45% 25% 1fr;
   grid-column-gap: 30px;
-  margin-top: 16px;
 `;
 
 export const ProductInfoWrapper = styled.div`

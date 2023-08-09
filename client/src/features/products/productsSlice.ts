@@ -12,16 +12,16 @@ const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    getProductsRequest: (state) => {
+    fetchProductsRequest: (state) => {
       state.isLoading = true;
       state.error = null;
     },
-    getProductsSuccess: (state, action: PayloadAction<IProduct[]>) => {
+    fetchProductsSuccess: (state, action: PayloadAction<IProduct[]>) => {
       state.products = action.payload;
       state.isLoading = false;
       state.error = null;
     },
-    getProductsFail: (state, action: PayloadAction<string>) => {
+    fetchProductsFail: (state, action: PayloadAction<string>) => {
       state.isLoading = false;
       state.error = action.payload;
     },
@@ -31,9 +31,9 @@ const productsSlice = createSlice({
 export const selectProductsState = (state: RootState) => state.products;
 
 export const {
-  getProductsRequest,
-  getProductsSuccess,
-  getProductsFail
+  fetchProductsRequest,
+  fetchProductsSuccess,
+  fetchProductsFail
 } = productsSlice.actions;
 
 export default productsSlice.reducer;
