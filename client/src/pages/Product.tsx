@@ -5,6 +5,7 @@ import { Rating } from '../layouts';
 import { IProduct } from '../interfaces';
 import { PageRoutes, ApiRoutes } from '../constants';
 import {
+  PageContent,
   BackButton,
   ProductDetails,
   ProductImage,
@@ -31,7 +32,7 @@ function Product() {
   }
 
   return (
-    <>
+    <PageContent>
       <Link to={PageRoutes.ROOT}>
         <BackButton>Go Back</BackButton>
       </Link>
@@ -62,7 +63,7 @@ function Product() {
           </CartGroup>
         </ProductDetails>
       )}
-    </>
+    </PageContent>
   )
 }
 

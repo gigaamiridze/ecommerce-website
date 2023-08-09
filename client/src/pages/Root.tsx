@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Header, Footer } from '../layouts';
-import { Container, PageContent } from '../components';
+import { Container } from '../components';
 
 function Root() {
   return (
@@ -8,9 +8,7 @@ function Root() {
       <Header />
       <main>
         <Container>
-          <PageContent>
-            <Outlet />
-          </PageContent>
+          <Outlet />
         </Container>
       </main>
       <Footer />

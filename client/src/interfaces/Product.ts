@@ -21,7 +21,8 @@ export interface IProductLayout {
 }
 
 // This interface is for initial state of product slice
-export interface IProductState {
+export interface IProductsState {
   products: IProduct[];
   isLoading: boolean;
+  error: string | null;
 }
