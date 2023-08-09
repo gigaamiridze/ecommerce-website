@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import axios from 'axios';
 import { ApiRoutes } from '../constants';
-import { ProductItem } from '../layouts';
+import { ProductItem, Loader } from '../layouts';
 import { HomeTitle, ProductsList } from '../components';
 import { useAppSelector, useAppDispatch } from '../store';
 import { selectProductState, getProductsStart, getProductsSuccess, getProductsFail } from '../features';
 
 function Home() {
-  const { products } = useAppSelector(selectProductState);
+  const { products, isLoading } = useAppSelector(selectProductState);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -26,14 +26,18 @@ function Home() {
   return (
     <>
       <HomeTitle>latest products</HomeTitle>
-      <ProductsList>
-        {products.map((product) => (
-          <ProductItem
-            key={product._id}
-            product={product}
-          />
-        ))}
-      </ProductsList>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <ProductsList>
+          {products.map((product) => (
+            <ProductItem
+              key={product._id}
+              product={product}
+            />
+          ))}
+        </ProductsList>
+      )}
     </>
   )
 }
