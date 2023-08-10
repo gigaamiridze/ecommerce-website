@@ -20,7 +20,8 @@ import {
   ProductPrice,
   ProjectDescription,
   CartGroup,
-  AddButton,
+  QuantitySelect,
+  AddButton
 } from '../components';
 
 function Product() {
@@ -28,6 +29,7 @@ function Product() {
   const { product, isLoading, error } = useAppSelector(selectProductDetailsState);
   const dispatch = useAppDispatch();
   const isInStock = (product?.count_in_stock ?? 0) > 0;
+  const stockIndices = Array.from({ length: product?.count_in_stock ?? 0 }, (_, index) => index);
 
   useEffect(() => {
     const getProductDetails = async () => {
@@ -74,6 +76,21 @@ function Product() {
               <span>Status:</span>
               <span>{isInStock ? 'In Stock' : 'Out of Stock'}</span>
             </div>
+            {isInStock && (
+              <div>
+                <span>Qty:</span>
+                <QuantitySelect>
+                  {stockIndices.map(x => (
+                    <option
+                      key={x + 1}
+                      value={x + 1}
+                    >
+                      {x + 1}
+                    </option>
+                  ))}
+                </QuantitySelect>
+              </div>
+            )}
             <div>
               <AddButton disabled={!isInStock}>Add to Cart</AddButton>
             </div>
