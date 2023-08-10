@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { Rating, Loader, Alert } from '../layouts';
 import { PageRoutes, ApiRoutes } from '../constants';
@@ -26,6 +26,8 @@ import {
 
 function Product() {
   const { productId } = useParams();
+  const navigate = useNavigate();
+  const [quantity, setQuantity] = useState<string>('1');
   const { product, isLoading, error } = useAppSelector(selectProductDetailsState);
   const dispatch = useAppDispatch();
   const isInStock = (product?.count_in_stock ?? 0) > 0;
@@ -45,6 +47,10 @@ function Product() {
 
     getProductDetails();
   }, [productId]);
+
+  const handleAddToCart = () => {
+    navigate(`${PageRoutes.CART}/${productId}?quantity=${quantity}`);
+  }
 
   return (
     <ProductContainer>
@@ -78,8 +84,11 @@ function Product() {
             </div>
             {isInStock && (
               <div>
-                <span>Qty:</span>
-                <QuantitySelect>
+                <span>Quantity:</span>
+                <QuantitySelect
+                  value={quantity}
+                  onChange={(e) => setQuantity(e.target.value)}
+                >
                   {stockIndices.map(x => (
                     <option
                       key={x + 1}
@@ -92,7 +101,12 @@ function Product() {
               </div>
             )}
             <div>
-              <AddButton disabled={!isInStock}>Add to Cart</AddButton>
+              <AddButton
+                disabled={!isInStock}
+                onClick={handleAddToCart}
+              >
+                Add to Cart
+              </AddButton>
             </div>
           </CartGroup>
         </ProductDetails>
