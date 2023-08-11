@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { ICartState } from '../interfaces';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { ICartState, ICartItem } from '../interfaces';
 import { RootState } from '../store';
 
 const initialState: ICartState = {
@@ -9,7 +9,21 @@ const initialState: ICartState = {
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
-  reducers: {},
+  reducers: {
+    addItem: (state, action: PayloadAction<ICartItem>) => {
+      const newItem = action.payload;
+      const existingItem = state.cartItems.find(item => item.id === newItem.id);
+
+      if (existingItem) {
+        existingItem.quantity += newItem.quantity;
+      } else {
+        return {
+          ...state,
+          cartItems: [...state.cartItems, newItem],
+        }
+      }
+    },
+  },
 });
 
 export const selectCartState = (state: RootState) => state.cart;
