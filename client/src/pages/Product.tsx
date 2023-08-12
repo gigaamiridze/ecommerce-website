@@ -1,15 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
+import { PageRoutes } from '../constants';
 import { Rating, Loader, Alert } from '../layouts';
-import { PageRoutes, ApiRoutes } from '../constants';
 import { useAppSelector, useAppDispatch } from '../store'
-import {
-  selectProductDetailsState,
-  fetchProductRequest,
-  fetchProductSuccess,
-  fetchProductFail
-} from '../features';
+import { selectProductDetailsState, getProductDetails } from '../features';
 import {
   ProductContainer,
   BackButton,
@@ -34,18 +28,7 @@ function Product() {
   const stockIndices = Array.from({ length: product?.count_in_stock ?? 0 }, (_, index) => index);
 
   useEffect(() => {
-    const getProductDetails = async () => {
-      try {
-        dispatch(fetchProductRequest());
-
-        const { data } = await axios.get(`${ApiRoutes.PRODUCTS}/${productId}`);
-        dispatch(fetchProductSuccess(data));
-      } catch (error) {
-        dispatch(fetchProductFail(`${(error as Error).message}: Failed to fetch product details`));
-      }
-    }
-
-    getProductDetails();
+    getProductDetails(productId, dispatch);
   }, [productId]);
 
   const handleAddToCart = () => {
