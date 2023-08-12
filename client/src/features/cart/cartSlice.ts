@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ICartState, ICartItem } from '../../interfaces';
+import { getCartItemsFromStorage } from '../../utils';
 import { RootState } from '../../store';
 
 const initialState: ICartState = {
-  cartItems: [],
+  cartItems: getCartItemsFromStorage(),
 };
 
 const cartSlice = createSlice({
