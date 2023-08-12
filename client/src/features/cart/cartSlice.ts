@@ -16,7 +16,10 @@ const cartSlice = createSlice({
       const existingItem = state.cartItems.find(item => item.id === newItem.id);
 
       if (existingItem) {
-        existingItem.quantity += newItem.quantity;
+        return {
+          ...state,
+          cartItems: state.cartItems.map(item => item.id === existingItem.id ? newItem : item),
+        }
       } else {
         return {
           ...state,

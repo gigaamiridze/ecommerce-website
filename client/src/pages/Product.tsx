@@ -29,7 +29,7 @@ function Product() {
 
   useEffect(() => {
     getProductDetails(productId, dispatch);
-  }, [productId]);
+  }, [dispatch, productId]);
 
   const handleAddToCart = () => {
     navigate(`${PageRoutes.CART}/${productId}?quantity=${quantity}`);
