@@ -4,7 +4,7 @@ import { Alert } from '../layouts';
 import { PageRoutes } from '../constants';
 import { useAppDispatch, useAppSelector } from '../store';
 import { addItemToCart, selectCartState } from '../features';
-import { CartContainer, HeadTitle, LeftColumn } from '../components';
+import { CartContainer, HeadTitle, LeftColumn, CartItem, ProductImage } from '../components';
 
 function Cart() {
   const { productId } = useParams();
@@ -29,7 +29,13 @@ function Cart() {
             Your cart is empty <Link to={PageRoutes.ROOT}>Go Back</Link>
           </Alert>
         ) : (
-          <div></div> // Render carts here
+          <div>
+            {cartItems.map(item => (
+              <CartItem key={item.id}>
+                <ProductImage src={item.image} alt={item.name} />
+              </CartItem>
+            ))}
+          </div>
         )}
       </LeftColumn>
     </CartContainer>
