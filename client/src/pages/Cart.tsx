@@ -1,11 +1,14 @@
 import { useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
-import { CartContainer, HeadTitle } from '../components';
-import { useAppDispatch,  } from '../store';
-import { addItemToCart } from '../features';
+import { useParams, useLocation, Link } from 'react-router-dom';
+import { Alert } from '../layouts';
+import { PageRoutes } from '../constants';
+import { useAppDispatch, useAppSelector } from '../store';
+import { addItemToCart, selectCartState } from '../features';
+import { CartContainer, HeadTitle, LeftColumn } from '../components';
 
 function Cart() {
   const { productId } = useParams();
+  const { cartItems } = useAppSelector(selectCartState);
   const dispatch = useAppDispatch();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
@@ -19,7 +22,16 @@ function Cart() {
 
   return (
     <CartContainer>
-      <HeadTitle>shopping cart</HeadTitle>
+      <LeftColumn>
+        <HeadTitle>shopping cart</HeadTitle>
+        {cartItems.length === 0 ? (
+          <Alert variant='primary'>
+            Your cart is empty <Link to={PageRoutes.ROOT}>Go Back</Link>
+          </Alert>
+        ) : (
+          <div></div> // Render carts here
+        )}
+      </LeftColumn>
     </CartContainer>
   )
 }

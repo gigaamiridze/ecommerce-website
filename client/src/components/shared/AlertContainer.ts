@@ -52,6 +52,19 @@ const AlertContainer = styled.div<IAlertVariant>`
   ${({ variant }) => variantStyles[variant]}
   font-size: 16px;
   line-height: 1.3;
+
+  a {
+    ${({ theme }) => css`
+      color: ${theme.colors.black};
+      transition: ${theme.transition};
+    `}
+    border-bottom: 1px solid transparent;
+    line-height: 16px;
+
+    &:hover {
+      border-bottom-color: ${({ theme }) => theme.colors.black};
+    }
+  }
 `;
 
 export default AlertContainer;
