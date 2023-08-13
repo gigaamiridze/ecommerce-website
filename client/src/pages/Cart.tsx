@@ -10,7 +10,8 @@ import {
   LeftColumn,
   CartItem,
   ProductImage,
-  ProductName
+  ProductName,
+  ProductPrice
 } from '../components';
 
 function Cart() {
@@ -43,6 +44,7 @@ function Cart() {
                 <Link to={`${PageRoutes.PRODUCT}/${item.id}`}>
                   <ProductName isProductContent={false}>{item.name}</ProductName>
                 </Link>
+                <ProductPrice isProductContent={true}>${item.price}</ProductPrice>
               </CartItem>
             ))}
           </div>
