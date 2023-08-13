@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const HomeTitle = styled.h1`
+const HeadTitle = styled.h1`
   color: ${({ theme }) => theme.colors.primary};
   font-size: 32px;
   font-weight: 600;
@@ -8,4 +8,4 @@ const HomeTitle = styled.h1`
   letter-spacing: 3px;
 `;
 
-export default HomeTitle;
+export default HeadTitle;

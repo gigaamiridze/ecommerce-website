@@ -31,7 +31,7 @@ function Product() {
     getProductDetails(productId, dispatch);
   }, [dispatch, productId]);
 
-  const handleAddToCart = () => {
+  const navigateToCartPage = () => {
     navigate(`${PageRoutes.CART}/${productId}?quantity=${quantity}`);
   }
 
@@ -86,7 +86,7 @@ function Product() {
             <div>
               <AddButton
                 disabled={!isInStock}
-                onClick={handleAddToCart}
+                onClick={navigateToCartPage}
               >
                 Add to Cart
               </AddButton>

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
-import { useAppDispatch } from '../store';
+import { CartContainer, HeadTitle } from '../components';
+import { useAppDispatch,  } from '../store';
 import { addItemToCart } from '../features';
 
 function Cart() {
@@ -17,7 +18,9 @@ function Cart() {
   }, [dispatch, productId, quantity]);
 
   return (
-    <div>Cart</div>
+    <CartContainer>
+      <HeadTitle>shopping cart</HeadTitle>
+    </CartContainer>
   )
 }
 

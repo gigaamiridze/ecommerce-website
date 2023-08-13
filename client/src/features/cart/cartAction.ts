@@ -8,7 +8,7 @@ export const addItemToCart = async (productId: string, quantity: number, dispatc
   const { data } = await axios.get(`${ApiRoutes.PRODUCTS}/${productId}`);
 
   const newItem = {
-    id: data.id,
+    id: data._id,
     name: data.name,
     price: data.price,
     image: data.image,

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { ProductItem, Loader, Alert } from '../layouts';
 import { useAppSelector, useAppDispatch } from '../store';
 import { selectProductsState, getProducts } from '../features';
-import { HomeContainer, HomeTitle, ProductsList } from '../components';
+import { HomeContainer, HeadTitle, ProductsList } from '../components';
 
 function Home() {
   const { products, isLoading, error } = useAppSelector(selectProductsState);
@@ -14,7 +14,7 @@ function Home() {
 
   return (
     <HomeContainer>
-      <HomeTitle>latest products</HomeTitle>
+      <HeadTitle>latest products</HeadTitle>
       {isLoading ? (
         <Loader />
       ) : error ? (
