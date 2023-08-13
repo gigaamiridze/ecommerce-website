@@ -10,6 +10,7 @@ export const addItemToCart = async (productId: string, quantity: number, dispatc
   const newItem = {
     id: data._id,
     name: data.name,
+    brand: data.brand,
     price: data.price,
     image: data.image,
     countInStock: data.count_in_stock,

@@ -17,6 +17,10 @@ export const ProductName = styled.h3<IProductLayout>`
     letter-spacing: ${isProductContent ? 3 : 1}px;
     line-height: ${isProductContent ? 1.2 : 1.5};
   `}
+  
+  &:hover {
+    text-decoration: ${({ isProductContent }) => !isProductContent && 'underline'};
+  }
 `;
 
 export const ProductPrice = styled.span<IProductLayout>`

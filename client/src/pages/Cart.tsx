@@ -4,7 +4,14 @@ import { Alert } from '../layouts';
 import { PageRoutes } from '../constants';
 import { useAppDispatch, useAppSelector } from '../store';
 import { addItemToCart, selectCartState } from '../features';
-import { CartContainer, HeadTitle, LeftColumn, CartItem, ProductImage } from '../components';
+import {
+  CartContainer,
+  HeadTitle,
+  LeftColumn,
+  CartItem,
+  ProductImage,
+  ProductName
+} from '../components';
 
 function Cart() {
   const { productId } = useParams();
@@ -32,7 +39,10 @@ function Cart() {
           <div>
             {cartItems.map(item => (
               <CartItem key={item.id}>
-                <ProductImage src={item.image} alt={item.name} />
+                <ProductImage src={item.image} alt={`${item.brand}'s Product`} />
+                <Link to={`${PageRoutes.PRODUCT}/${item.id}`}>
+                  <ProductName isProductContent={false}>{item.name}</ProductName>
+                </Link>
               </CartItem>
             ))}
           </div>
