@@ -1,7 +1,7 @@
-import { useEffect } from 'react';
+import { useEffect, ChangeEvent } from 'react';
 import { useParams, useLocation, Link } from 'react-router-dom';
-import { Alert } from '../layouts';
 import { PageRoutes } from '../constants';
+import { Alert, SelectQuantity } from '../layouts';
 import { useAppDispatch, useAppSelector } from '../store';
 import { addItemToCart, selectCartState } from '../features';
 import {
@@ -45,6 +45,13 @@ function Cart() {
                   <ProductName isProductContent={false}>{item.name}</ProductName>
                 </Link>
                 <ProductPrice isProductContent={true}>${item.price}</ProductPrice>
+                <SelectQuantity 
+                  countInStock={item.countInStock}
+                  value={item.quantity}
+                  setter={(event: ChangeEvent<HTMLSelectElement>) => (
+                    addItemToCart(String(item.id), Number(event.target.value), dispatch)
+                  )}
+                />
               </CartItem>
             ))}
           </div>

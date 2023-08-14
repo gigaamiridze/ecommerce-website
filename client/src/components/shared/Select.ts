@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
-const QuantitySelect = styled.select`
-  ${({theme}) => css`
+const Select = styled.select`
+  ${({ theme }) => css`
     color: ${theme.colors.davyGray};
     background-color: ${theme.colors.cultured};
     font-family: ${theme.fonts.primary};
@@ -24,8 +24,8 @@ const QuantitySelect = styled.select`
   background-size: 15px;
   
   &:hover {
-    border-color: ${({theme}) => theme.colors.brightGray};
+    border-color: ${({ theme }) => theme.colors.brightGray};
   }
 `;
 
-export default QuantitySelect;
+export default Select;
