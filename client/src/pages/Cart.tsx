@@ -1,5 +1,6 @@
 import { useEffect, ChangeEvent } from 'react';
 import { useParams, useLocation, Link } from 'react-router-dom';
+import { FaTrash } from 'react-icons/fa';
 import { PageRoutes } from '../constants';
 import { Alert, SelectQuantity } from '../layouts';
 import { useAppDispatch, useAppSelector } from '../store';
@@ -11,7 +12,8 @@ import {
   CartItem,
   ProductImage,
   ProductName,
-  ProductPrice
+  ProductPrice,
+  DeleteButton
 } from '../components';
 
 function Cart() {
@@ -45,13 +47,16 @@ function Cart() {
                   <ProductName isProductContent={false}>{item.name}</ProductName>
                 </Link>
                 <ProductPrice isProductContent={true}>${item.price}</ProductPrice>
-                <SelectQuantity 
+                <SelectQuantity
                   countInStock={item.countInStock}
                   value={item.quantity}
                   setter={(event: ChangeEvent<HTMLSelectElement>) => (
                     addItemToCart(String(item.id), Number(event.target.value), dispatch)
                   )}
                 />
+                <DeleteButton>
+                  <FaTrash />
+                </DeleteButton>
               </CartItem>
             ))}
           </div>

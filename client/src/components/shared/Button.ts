@@ -17,6 +17,18 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
+export const DeleteButton = styled(Button)`
+  width: 100%;
+  height: 48px;
+  background-color: transparent;
+  font-size: 14px;
+  padding: 0;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.brightGray}; 
+  }
+`;
+
 export const BackButton = styled(Button)`
   color: ${({ theme }) => theme.colors.primary};
   background-color: transparent;

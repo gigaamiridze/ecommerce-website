@@ -6,3 +6,4 @@ export { default as HeadTitle } from './HeadTitle';
 export { default as Select } from './Select';
 export * from './Product';
 export * from './Rating';
+export * from './Button';
