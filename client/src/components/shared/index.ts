@@ -4,6 +4,7 @@ export { default as PageContent } from './PageContent';
 export { default as Container } from './Container';
 export { default as HeadTitle } from './HeadTitle';
 export { default as Select } from './Select';
+export * from './HeadingTitles';
 export * from './Product';
 export * from './Rating';
 export * from './Button';
