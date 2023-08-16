@@ -42,7 +42,7 @@ export const BackButton = styled(Button)`
   }
 `;
 
-export const AddButton = styled(Button)`
+export const BlackButton = styled(Button)`
   ${({ theme }) => css`
     color: ${theme.colors.white};
     background-color: ${theme.colors.primary};

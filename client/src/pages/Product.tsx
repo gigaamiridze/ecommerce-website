@@ -11,7 +11,7 @@ import {
   ProductImage,
   ProductInfoWrapper,
   CartGroup,
-  AddButton
+  BlackButton
 } from '../components';
 
 function Product() {
@@ -75,12 +75,12 @@ function Product() {
               </div>
             )}
             <div>
-              <AddButton
+              <BlackButton
                 disabled={!isInStock}
                 onClick={navigateToCartPage}
               >
                 Add to Cart
-              </AddButton>
+              </BlackButton>
             </div>
           </CartGroup>
         </ProductDetails>

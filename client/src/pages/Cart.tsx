@@ -11,7 +11,8 @@ import {
   CartItem,
   ProductImage,
   DeleteButton,
-  CartGroup
+  CartGroup,
+  BlackButton
 } from '../components';
 
 function Cart() {
@@ -67,6 +68,11 @@ function Cart() {
         <div id='total-block'>
           <Heading title={`Subtotal (${totalItems}) items`} type={2} />
           <Heading title={`$${totalPrice}`} type={5} />
+        </div>
+        <div>
+          <BlackButton disabled={cartItems.length === 0}>
+            Proceed To Checkout
+          </BlackButton>
         </div>
       </CartGroup>
     </CartContainer>
