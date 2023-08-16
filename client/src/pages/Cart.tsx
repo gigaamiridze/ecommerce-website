@@ -10,7 +10,8 @@ import {
   LeftColumn,
   CartItem,
   ProductImage,
-  DeleteButton
+  DeleteButton,
+  CartGroup
 } from '../components';
 
 function Cart() {
@@ -20,6 +21,9 @@ function Cart() {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const quantity = Number(queryParams.get('quantity'));
+
+  const totalItems = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const totalPrice = cartItems.reduce((acc, item) => acc + item.quantity * item.price, 0).toFixed(2);
 
   useEffect(() => {
     if (productId && quantity) {
@@ -59,6 +63,12 @@ function Cart() {
           </div>
         )}
       </LeftColumn>
+      <CartGroup>
+        <div id='total-block'>
+          <Heading title={`Subtotal (${totalItems}) items`} type={2} />
+          <Heading title={`$${totalPrice}`} type={5} />
+        </div>
+      </CartGroup>
     </CartContainer>
   )
 }

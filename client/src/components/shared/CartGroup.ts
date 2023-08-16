@@ -15,6 +15,16 @@ const CartGroup = styled.div`
       border-bottom: none;
     }
   }
+
+  #total-block {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 16px;
+  }
+  
+  h2 {
+    color: ${({ theme }) => theme.colors.davyGray};
+  }
 `;
 
 export default CartGroup;
