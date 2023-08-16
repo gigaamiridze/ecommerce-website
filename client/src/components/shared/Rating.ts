@@ -5,6 +5,10 @@ export const RatingContainer = styled.div`
   display: flex;
   align-items: center;
   column-gap: 15px;
+  
+  h5 {
+    line-height: 1.5;
+  }
 `;
 
 export const StarsWrapper = styled.div`
@@ -14,11 +18,4 @@ export const StarsWrapper = styled.div`
     color: ${({ theme }) => theme.colors.yellow};
     font-size: 18px;
   }
-`;
-
-export const ReviewsText = styled.p`
-  color: ${({ theme }) => theme.colors.davyGray};
-  font-size: 14px;
-  line-height: 1.5;
-  letter-spacing: 1px;
 `;

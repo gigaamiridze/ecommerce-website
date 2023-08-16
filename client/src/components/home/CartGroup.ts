@@ -14,12 +14,6 @@ const CartGroup = styled.div`
     &:last-child {
       border-bottom: none;
     }
-
-    span {
-      color: ${({ theme }) => theme.colors.davyGray};
-      font-size: 14px;
-      letter-spacing: 1px;
-    }
   }
 `;
 

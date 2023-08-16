@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { mixins } from '../../assets';
-import { PageContent, ProductName, ProductPrice, RatingContainer } from '../shared';
+import { PageContent } from '../shared';
 
 export const ProductContainer = styled(PageContent)`
   display: flex;
@@ -20,15 +20,18 @@ export const ProductInfoWrapper = styled.div`
   justify-content: center;
   row-gap: 12px;
   
-  ${ProductName}, ${ProductPrice}, ${RatingContainer} {
+  h2 {
+    color: ${({ theme }) => theme.colors.davyGray};
+  }
+  
+  h5:nth-child(4) {
+    line-height: 1.5;
+  }
+  
+  h2,
+  div:nth-child(2),
+  h5:nth-child(3) {
     ${mixins.horizontalGrayLine};
     padding-bottom: 12px;
   }
-`;
-
-export const ProjectDescription = styled.p`
-  color: ${({ theme }) => theme.colors.davyGray};
-  font-size: 14px;
-  letter-spacing: 1px;
-  line-height: 1.5;
 `;

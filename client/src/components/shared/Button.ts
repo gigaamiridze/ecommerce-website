@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { mixins } from '../../assets';
 
 const Button = styled.button`
   ${({ theme }) => css`
@@ -23,6 +24,7 @@ export const DeleteButton = styled(Button)`
   background-color: transparent;
   font-size: 14px;
   padding: 0;
+  ${mixins.flexCenter};
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.brightGray}; 

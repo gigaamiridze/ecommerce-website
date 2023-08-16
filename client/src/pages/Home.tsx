@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { ProductItem, Loader, Alert } from '../layouts';
 import { useAppSelector, useAppDispatch } from '../store';
 import { selectProductsState, getProducts } from '../features';
-import { HomeContainer, HeadTitle, ProductsList } from '../components';
+import { ProductItem, Loader, Alert, Heading } from '../layouts';
+import { HomeContainer, ProductsList } from '../components';
 
 function Home() {
   const { products, isLoading, error } = useAppSelector(selectProductsState);
@@ -14,7 +14,7 @@ function Home() {
 
   return (
     <HomeContainer>
-      <HeadTitle>latest products</HeadTitle>
+      <Heading title='latest products' type={1} />
       {isLoading ? (
         <Loader />
       ) : error ? (

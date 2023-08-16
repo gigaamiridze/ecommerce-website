@@ -2,17 +2,14 @@ import { useEffect, ChangeEvent } from 'react';
 import { useParams, useLocation, Link } from 'react-router-dom';
 import { FaTrash } from 'react-icons/fa';
 import { PageRoutes } from '../constants';
-import { Alert, SelectQuantity } from '../layouts';
 import { useAppDispatch, useAppSelector } from '../store';
+import { Alert, SelectQuantity, Heading } from '../layouts';
 import { addItemToCart, selectCartState } from '../features';
 import {
   CartContainer,
-  HeadTitle,
   LeftColumn,
   CartItem,
   ProductImage,
-  ProductName,
-  ProductPrice,
   DeleteButton
 } from '../components';
 
@@ -33,7 +30,7 @@ function Cart() {
   return (
     <CartContainer>
       <LeftColumn>
-        <HeadTitle>shopping cart</HeadTitle>
+        <Heading title='shopping cart' type={1} />
         {cartItems.length === 0 ? (
           <Alert variant='primary'>
             Your cart is empty <Link to={PageRoutes.ROOT}>Go Back</Link>
@@ -44,9 +41,9 @@ function Cart() {
               <CartItem key={item.id}>
                 <ProductImage src={item.image} alt={`${item.brand}'s Product`} />
                 <Link to={`${PageRoutes.PRODUCT}/${item.id}`}>
-                  <ProductName isProductContent={false}>{item.name}</ProductName>
+                  <Heading title={item.name} type={4} />
                 </Link>
-                <ProductPrice isProductContent={true}>${item.price}</ProductPrice>
+                <Heading title={`$${item.price}`} type={5} />
                 <SelectQuantity
                   countInStock={item.countInStock}
                   value={item.quantity}

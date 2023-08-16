@@ -15,11 +15,6 @@ export interface IProductProps {
   product: IProduct;
 }
 
-export interface IProductLayout {
-  // If a component is product page content 'isProductContent' is set to true
-  isProductContent: boolean;
-}
-
 // This interface is for initial state of products slice
 export interface IProductsState {
   products: IProduct[];

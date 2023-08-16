@@ -2,17 +2,14 @@ import { useState, useEffect, ChangeEvent } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { PageRoutes } from '../constants';
 import { useAppSelector, useAppDispatch } from '../store';
-import { Rating, Loader, Alert, SelectQuantity } from '../layouts';
 import { selectProductDetailsState, getProductDetails } from '../features';
+import { Rating, Loader, Alert, SelectQuantity, Heading } from '../layouts';
 import {
   ProductContainer,
   BackButton,
   ProductDetails,
   ProductImage,
   ProductInfoWrapper,
-  ProductName,
-  ProductPrice,
-  ProjectDescription,
   CartGroup,
   AddButton
 } from '../components';
@@ -53,24 +50,24 @@ function Product() {
             alt={`${product?.brand}'s Product`}
           />
           <ProductInfoWrapper>
-            <ProductName isProductContent={true}>{product?.name}</ProductName>
+            <Heading title={product?.name} type={2} />
             <Rating rating={product?.rating} numReviews={product?.num_reviews} />
-            <ProductPrice isProductContent={true}>Price: ${product?.price}</ProductPrice>
-            <ProjectDescription>{product?.description}</ProjectDescription>
+            <Heading title={`Price: $${product?.price}`} type={5} />
+            <Heading title={product?.description} type={5} />
           </ProductInfoWrapper>
           <CartGroup>
             <div>
-              <span>Price:</span>
-              <ProductPrice isProductContent={true}>${product?.price}</ProductPrice>
+              <Heading title='Price:' type={5} />
+              <Heading title={`$${product?.price}`} type={5} />
             </div>
             <div>
-              <span>Status:</span>
-              <span>{isInStock ? 'In Stock' : 'Out of Stock'}</span>
+              <Heading title='Status:' type={5} />
+              <Heading title={isInStock ? 'In Stock' : 'Out of Stock'} type={5} />
             </div>
             {isInStock && (
               <div>
-                <span>Quantity:</span>
-                <SelectQuantity 
+                <Heading title='Quantity:' type={5} />
+                <SelectQuantity
                   countInStock={product?.count_in_stock}
                   value={quantity}
                   setter={handleChange}
