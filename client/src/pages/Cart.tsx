@@ -1,5 +1,5 @@
 import { useEffect, ChangeEvent } from 'react';
-import { useParams, useLocation, Link } from 'react-router-dom';
+import { useParams, useLocation, useNavigate, Link } from 'react-router-dom';
 import { FaTrash } from 'react-icons/fa';
 import { PageRoutes } from '../constants';
 import { useAppDispatch, useAppSelector } from '../store';
@@ -19,6 +19,7 @@ function Cart() {
   const { productId } = useParams();
   const { cartItems } = useAppSelector(selectCartState);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const quantity = Number(queryParams.get('quantity'));
@@ -70,7 +71,10 @@ function Cart() {
           <Heading title={`$${totalPrice}`} type={5} />
         </div>
         <div>
-          <BlackButton disabled={cartItems.length === 0}>
+          <BlackButton
+            disabled={cartItems.length === 0}
+            onClick={() => navigate(`${PageRoutes.LOGIN}?redirect=shipping`)}
+          >
             Proceed To Checkout
           </BlackButton>
         </div>
