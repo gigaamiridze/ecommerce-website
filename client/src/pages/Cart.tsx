@@ -4,7 +4,7 @@ import { FaTrash } from 'react-icons/fa';
 import { PageRoutes } from '../constants';
 import { useAppDispatch, useAppSelector } from '../store';
 import { Alert, SelectQuantity, Heading } from '../layouts';
-import { addItemToCart, selectCartState } from '../features';
+import { addItemToCart, removeItemFromCart, selectCartState } from '../features';
 import {
   CartContainer,
   LeftColumn,
@@ -57,7 +57,7 @@ function Cart() {
                     addItemToCart(String(item.id), Number(event.target.value), dispatch)
                   )}
                 />
-                <DeleteButton>
+                <DeleteButton onClick={() => removeItemFromCart(item.id, dispatch)}>
                   <FaTrash />
                 </DeleteButton>
               </CartItem>

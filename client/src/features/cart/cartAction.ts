@@ -2,7 +2,7 @@ import axios from 'axios';
 import { ApiRoutes } from '../../constants';
 import { store, AppDispatch } from '../../store';
 import { setCartItemsToStorage } from '../../utils';
-import { addItem, selectCartState } from './cartSlice';
+import { addItem, removeItem, selectCartState } from './cartSlice';
 
 export const addItemToCart = async (productId: string, quantity: number, dispatch: AppDispatch) => {
   const { data } = await axios.get(`${ApiRoutes.PRODUCTS}/${productId}`);
@@ -18,6 +18,13 @@ export const addItemToCart = async (productId: string, quantity: number, dispatc
   };
 
   dispatch(addItem(newItem));
+
+  const { cartItems } = selectCartState(store.getState());
+  setCartItemsToStorage(cartItems);
+}
+
+export const removeItemFromCart = async (productId: number, dispatch: AppDispatch) => {
+  dispatch(removeItem(productId));
 
   const { cartItems } = selectCartState(store.getState());
   setCartItemsToStorage(cartItems);
